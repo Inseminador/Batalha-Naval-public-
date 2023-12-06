@@ -1,0 +1,53 @@
+[REDACTED]
+import java.awt.event.ActionListener;
+
+public class IniciarPartida extends IniciarAtaque implements ActionListener{
+
+    IniciarPartida() {
+        menuPrincipal.BotaoIniciar.addActionListener(this);
+        [REDACTED]
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == menuPrincipal.BotaoIniciar) {
+            [REDACTED]
+            menuPrincipal.MenuInicialFrame.setVisible(false);
+            // ---------------------------------------------------------------------------------------
+            NavioCicloCheckJogador = 1;
+            NavioCicloCheckMaquina = 1;
+            [REDACTED]
+            // ---------------------------------------------------------------------------------------
+            LabelRodadaCounter.setVisible(false);
+            LabelFeitosMaquina.setText("Coloque seus navios.");
+            [REDACTED]
+            // ---------------------------------------------------------------------------------------
+            [REDACTED]
+            CoordsSegundoNavioJogador.clear();
+            [REDACTED]
+            ListaCoordsAcertosMaquina.clear();
+            // ---------------------------------------------------------------------------------------
+            ListaPossiveisTiros.clear();
+            [REDACTED]
+            // ---------------------------------------------------------------------------------------
+            for (int j = 0; j <= 48; j++) {
+                ButtonsMaquina[j].setIcon(null);
+                [REDACTED]
+                ButtonsMaquina[j].setBackground(CorDesconhecido);
+                //ButtonsJogador[j].setBackground(CorMar);
+                [REDACTED]
+                // ---------------------------------------------------------------------------------------
+                ButtonsMaquina[j].removeActionListener(AtacarNaviosDaMaquinaListener);
+                [REDACTED]
+                ListaPossiveisTiros.add(j);
+                if (j>=1 && j <= 16) {
+                    [REDACTED]
+                }
+            }
+            [REDACTED]
+        // =======================================================================================
+        } else if (e.getSource() == menuPrincipal.BotaoSair) {
+            System.exit(0);
+        }
+    }
+}

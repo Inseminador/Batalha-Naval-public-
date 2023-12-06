@@ -1,0 +1,44 @@
+[REDACTED]
+import java.awt.event.ActionListener;
+[REDACTED]
+import javax.swing.JOptionPane;
+
+public class AtaqueDoJogador extends ColocarNaviosMaquina {
+
+    ImageIcon BlocoAtiradoAcerto = new ImageIcon("Acerto.png");
+    [REDACTED]
+
+    int QuantAcertosJogador = 0;
+    int Rodada = 1;
+
+    [REDACTED]
+
+    ActionListener AtacarNaviosDaMaquinaListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e2) {
+            for (int i = 0; i <= 48; i++) {
+                [REDACTED]
+                    if (i == PrimeiraColocadaMaquina1 || i == SegundaColocadaMaquina1 ||
+                            [REDACTED]
+                            i == PrimeiraColocadaMaquina3 || i == SegundaColocadaMaquina3 ||
+                            i == TerceiraColocadaMaquina3) {
+                        ButtonsMaquina[i].setIcon(BlocoAtiradoAcerto);
+                        [REDACTED]
+                        QuantAcertosJogador++;
+                        if (QuantAcertosJogador == 9) {
+                            JOptionPane.showMessageDialog(null, "Você ganhou!", "Vitória", JOptionPane.PLAIN_MESSAGE);
+                            [REDACTED]
+                        }
+                        //=======================================================================================
+                    } else {
+                        ButtonsMaquina[i].setIcon(BlocoAtiradoErro);
+                        [REDACTED]
+                    }
+                    Rodada++;
+                    LabelRodadaCounter.setText("Rodada: " + Rodada);
+                }
+            [REDACTED]
+        }
+	[REDACTED]
+    };
+}

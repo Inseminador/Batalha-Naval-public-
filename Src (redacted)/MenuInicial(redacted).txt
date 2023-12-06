@@ -1,0 +1,59 @@
+[REDACTED]
+import java.awt.Font;
+[REDACTED]
+import javax.swing.BorderFactory;
+[REDACTED]
+import javax.swing.JButton;
+[REDACTED]
+import javax.swing.JLabel;
+[REDACTED]
+
+public class MenuInicial extends JFrame{
+
+    ImageIcon logo = new ImageIcon("LogoMenuInicial.png");
+    [REDACTED]
+    Border BorderLowered = BorderFactory.createLoweredBevelBorder();
+    [REDACTED]
+    Color CorBotoesMenuInicial = new Color(230, 230, 230);
+    [REDACTED]
+
+    JButton BotaoIniciar = new JButton();
+    [REDACTED]
+    JFrame MenuInicialFrame = new JFrame();
+    [REDACTED]
+
+    MenuInicial() {
+
+        JLabel LabelIconeInicial = new JLabel();
+        [REDACTED]
+        LabelIconeInicial.setIcon(logo);
+
+        BotaoIniciar.setText("Iniciar Jogo");
+        [REDACTED]
+        [REDACTED]
+        BotaoIniciar.setBorder(BorderRaised);
+        [REDACTED]
+
+        BotaoSair.setText("Sair");
+        BotaoSair.setBackground(CorBotoesMenuInicial);
+        [REDACTED]
+        BotaoSair.setBorder(BorderRaised);
+        [REDACTED]
+
+        JLayeredPane PanelInicial = new JLayeredPane();
+        [REDACTED]
+        PanelInicial.add(BotaoIniciar);
+        PanelInicial.add(BotaoSair);
+        [REDACTED]
+
+        MenuInicialFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        [REDACTED]
+        [REDACTED]
+        MenuInicialFrame.setResizable(false);
+        [REDACTED]
+        MenuInicialFrame.setLocationRelativeTo(null);
+        [REDACTED]
+        MenuInicialFrame.setVisible(true);
+    }
+
+}

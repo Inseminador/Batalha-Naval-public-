@@ -1,0 +1,170 @@
+import javax.swing.BorderFactory;
+[REDACTED]
+import javax.swing.JButton;
+[REDACTED]
+import javax.swing.JLabel;
+[REDACTED]
+[REDACTED]
+[REDACTED]
+[REDACTED]
+
+public class [REDACTED] extends JFrame {
+    ImageIcon logo = new ImageIcon("logo.jpg");
+    [REDACTED]
+
+    [REDACTED]
+    Color CorDesconhecido = new Color([REDACTED]);
+    [REDACTED]
+    Border BorderLowered = BorderFactory.createLoweredBevelBorder();
+    Border BorderMatriz = BorderFactory.createLineBorder([REDACTED]);
+    [REDACTED]
+    [REDACTED]
+    [REDACTED]
+    Font FontePadrao = new Font("New Courier", Font.BOLD,16);
+
+    [REDACTED]
+    JButton[] ButtonsMaquina = new JButton[49];
+
+    JLabel LabelFeitosMaquina = new JLabel();
+    [REDACTED]
+    JLabel LabelRodadaCounter = new JLabel();
+
+    [REDACTED]
+    JButton ButtonReiniciar = new JButton();
+
+    [REDACTED]
+
+    JFrame MenuJogoFrame = new JFrame();
+
+    MenuJogo(){
+
+        [REDACTED]
+        CoordenadaNumMaquina.setText("     1   2   3   4   5   6   7");
+        [REDACTED]
+
+        [REDACTED]
+        CoordenadaLetraMaquina.setText("<html>A<p>B<p>C<p>D<p>E<p>F<p>G");
+        [REDACTED]
+
+        [REDACTED]
+        [REDACTED].setText([REDACTED]);
+        CoordenadaNumJogador.setFont([REDACTED]));
+
+        JLabel CoordenadaLetraJogador = new JLabel();
+        CoordenadaLetraJogador.setText("<html>A<p>B<p>C<p>D<p>E<p>F<p>G");
+        CoordenadaLetraJogador.setFont(new Font("New Courier", Font.BOLD,26));
+
+        JPanel MatrizMaquina = new JPanel();
+        [REDACTED]
+        for(int i=0; i<=48; i++){
+			ButtonsMaquina[i] = new JButton([REDACTED]);
+			[REDACTED]
+			[REDACTED]
+            [REDACTED]
+            //ButtonsMaquina[i].setBackground(CorDesconhecido);
+            [REDACTED]
+            [REDACTED]
+		}
+        [REDACTED] TabuleiroMaquina = new JPanel([REDACTED]);
+        [REDACTED]
+        TabuleiroMaquina.setBorder(BorderRaised);
+        TabuleiroMaquina.setBounds(295,5, 280,280);
+        [REDACTED]
+        TabuleiroMaquina.add(MatrizMaquina, BorderLayout.CENTER);
+
+        LabelFeitosMaquina.setText("Coloque seus navios.");
+        LabelFeitosMaquina.setVerticalAlignment(JLabel.CENTER);
+        [REDACTED]
+        LabelFeitosMaquina.setOpaque(true);
+        [REDACTED]
+        LabelFeitosMaquina.setBorder(BorderRaised);
+        [REDACTED]
+
+        [REDACTED]
+        LabelFeitosJogador.setVerticalAlignment(JLabel.CENTER);
+        [REDACTED]
+        LabelFeitosJogador.setOpaque(true);
+        [REDACTED]
+        LabelFeitosJogador.setFont(FontePadrao);
+
+        LabelRodadaCounter.setText("Rodada 1");
+        LabelRodadaCounter.setBounds(233,5,100,50);
+        LabelRodadaCounter.setVerticalAlignment(JLabel.CENTER);
+        [REDACTED]
+	[REDACTED]
+	[REDACTED]
+
+        [REDACTED]
+        ButtonConfirmar.setBackground(CorPadraoClara);
+        [REDACTED]
+        ButtonConfirmar.setFocusable(false);
+        [REDACTED]
+        ButtonConfirmar.setVisible(false);
+
+        ButtonReiniciar.setText("Reiniciar");
+        [REDACTED]
+        ButtonReiniciar.setBounds(290,5,60,50);
+        [REDACTED]
+        ButtonReiniciar.setBorder(BorderRaised);
+        [REDACTED]
+
+        JPanel PanelInstrucoesInterno = new JPanel();
+        [REDACTED]
+        PanelInstrucoesInterno.setBackground(CorPadraoEscura);
+        PanelInstrucoesInterno.setBorder(BorderLowered);
+        [REDACTED]
+        PanelInstrucoesInterno.setLayout(null);
+        [REDACTED]
+        PanelInstrucoesInterno.add(LabelFeitosMaquina);
+        [REDACTED]
+        [REDACTED]
+        PanelInstrucoesInterno.add(ButtonReiniciar);
+
+        JPanel PanelInstrucoesBorda = new JPanel();
+        PanelInstrucoesBorda.setBounds(0,0, 600,70);
+        [REDACTED]
+        PanelInstrucoesBorda.setBackground(CorPadraoClara);
+        [REDACTED]
+	[REDACTED]
+	[REDACTED]
+
+        JPanel MatrizJogador = new JPanel();
+        [REDACTED]
+        for(int i=0; i<=48; i++){
+			[REDACTED]
+			[REDACTED]
+			ButtonsJogador[i].setFocusable(false);
+            ButtonsJogador[i].setBorder(BorderMatriz);
+            //ButtonsJogador[i].setBackground(CorMar);
+            [REDACTED]
+            ButtonsJogador[i].setFont(new Font("New Courier", Font.BOLD,13));
+            ButtonsJogador[i].setFont(new Font("New Courier", Font.BOLD,7));
+		}
+
+        JPanel TabuleiroJogador = new JPanel();
+        [REDACTED]
+        TabuleiroJogador.setBorder(BorderRaised);
+        [REDACTED]
+        TabuleiroJogador.setBounds(5,5, 280,280);
+        TabuleiroJogador.add(CoordenadaNumJogador, BorderLayout.NORTH);
+        TabuleiroJogador.add(CoordenadaLetraJogador, BorderLayout.WEST);
+        TabuleiroJogador.add(MatrizJogador, BorderLayout.CENTER);
+
+        [REDACTED]
+        Tabuleiros.setBounds(0,70,585,295);
+	[REDACTED]
+        Tabuleiros.setBackground(CorPadraoEscura);
+        Tabuleiros.add(TabuleiroJogador);
+        [REDACTED]
+        
+        [REDACTED]
+        MenuJogoFrame.setIconImage(logo.getImage());
+        [REDACTED]
+        MenuJogoFrame.setLocationRelativeTo(null);
+        [REDACTED]
+        [REDACTED]
+	[REDACTED]
+	[REDACTED]
+        MenuJogoFrame.add(Tabuleiros);
+    }
+}

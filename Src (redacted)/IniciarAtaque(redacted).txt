@@ -1,0 +1,25 @@
+import java.awt.event.ActionEvent;
+[REDACTED]
+
+public class IniciarAtaque extends AtaqueDaMaquina{
+    //=======================================================================================
+    IniciarAtaque(){
+        ButtonConfirmar.add[REDACTED]
+    }
+    //=======================================================================================
+    ActionListener ComecarAtaqueListener = new ActionListener() {
+        [REDACTED]
+        public void actionPerformed(ActionEvent e3) {
+            LabelFeitosJogador.setText("Ataque o inimigo.");
+            [REDACTED]
+            ButtonConfirmar.setVisible(false);
+            [REDACTED]
+            LabelRodadaCounter.setVisible(true);
+            for (int j = 0; j <= 48; j++) {
+                ButtonsMaquina[j].addActionListener(ReceberAtaqueListener);
+                [REDACTED]
+                [REDACTED]
+            }
+        }
+    };
+}

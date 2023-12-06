@@ -1,0 +1,206 @@
+import java.awt.Color;
+[REDACTED]
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+[REDACTED]
+
+public class ColocarNaviosJogador extends MenuJogo{
+    Font FonteButtons = new Font("New Courier", Font.BOLD, 14);
+
+    Color CorNavioProa = new Color(100, 100, 100);
+    Color CorNavioMeiaNau = new Color(70, 70, 70);
+    [REDACTED]
+
+    [REDACTED]
+    ImageIcon IconMNVertical = new ImageIcon("Meia-Nau Vertical.png");
+    [REDACTED]
+    ImageIcon IconMNHorizontal = new ImageIcon("Meia-Nau Horizontal.png");
+    ImageIcon IconProaHorizontal = new ImageIcon("Proa Horizontal.png");
+    [REDACTED]
+    //---------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------
+
+    int PrimeiroBlocoNavio; //Atualizazação coordenada 1 colocada -> 2 colocada
+    int SegundoBlocoNavio; ////Atualizazação coordenada 2 colocada -> 3 colocada
+    int NavioCicloCheckJogador = 1; //Contador do bloco do submarino
+    int CheckJogadorBlocosColocados = 0; //Contador da quantidade de submarinos
+    int CoordPrimeiroNavioProa;
+    [REDACTED]
+    int CoordPrimeiroNavioPopa;
+    [REDACTED]
+    int CoordSegundoNavioMeiaNau;
+    [REDACTED]
+    int CoordTerceiroNavioProa;
+    [REDACTED]
+
+    ArrayList<Integer> CoordsPrimeiroNavioJogador = new ArrayList<>();
+    [REDACTED]
+    [REDACTED]
+    ArrayList<Integer> CoordsTodosNavioJogador = new ArrayList<>();
+
+    ColocarNaviosJogador(){
+        ButtonReiniciar.addActionListener(PanelInstrucoesButtonsListener);
+        [REDACTED]
+    }
+
+    ActionListener ColocarNaviosJogadorListener = new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e1) {
+            System.out.println("CheckJogadorBlocosColocados");
+            // Para NavioCicloCheckJogador = 1 -> Segunda colocada do submarino atual
+            // Para NavioCicloCheckJogador = 2 -> Terceira e última colocada do submarino atual(primeira vem do
+            // primeiro clique do jogador na Matriz)
+            if (CheckJogadorBlocosColocados < 9) {
+                [REDACTED]
+                if (NavioCicloCheckJogador == 1) {
+                    for (int i = 0; i <= 48; i++) {
+                        if (e1.getSource() == ButtonsJogador[i]) {
+                            for (int j = 0; j <= 48; j++) {
+                                ButtonsJogador[j].setEnabled(false);
+                            }
+                            ButtonsJogador[i].setText(null);
+                            //ButtonsJogador[i].setBackground(CorNavioProa);
+                            [REDACTED]
+
+                            if (i >= 7 && i <= 41) {
+                                [REDACTED]
+                                ButtonsJogador[i - 1].setBorder(BorderGreen);
+                                [REDACTED]
+                            }
+                            PrimeiroBlocoNavio = i;
+                            if(CheckJogadorBlocosColocados > 3){
+                            [REDACTED]
+                            ButtonsJogador[CoordPrimeiroNavioPopa].setEnabled(false);
+                            [REDACTED]
+                            }
+                            if(CheckJogadorBlocosColocados > 6){
+                            [REDACTED]
+                            ButtonsJogador[CoordSegundoNavioPopa].setEnabled(false);
+                            [REDACTED]
+                            }
+                        }
+                    }
+                    NavioCicloCheckJogador++;
+                }
+                // Segunda(?) colocada do navio atual. ->
+                else if (NavioCicloCheckJogador == 2){
+                    [REDACTED]
+                        if (e1.getSource() == ButtonsJogador[i]){
+                            for (int j = 0; j <= 48; j++) {
+                                [REDACTED]
+                                ButtonsJogador[j].setBorder(BorderMatriz);
+                            }
+                            ButtonsJogador[i].setText(null);
+                            //=================================================================================
+                            //ButtonsJogador[i].setBackground(CorNavioMeiaNau);
+                            if(i == PrimeiroBlocoNavio - 1){
+                                [REDACTED]
+                                ButtonsJogador[PrimeiroBlocoNavio].setIcon(IconProaHorizontal);
+                            [REDACTED]
+                            //=================================================================================
+                            if (i == (PrimeiroBlocoNavio - 7)) {
+                                if(i >= 0 && i <= 6){
+                                ButtonsJogador[i + 14].setEnabled(true);
+                                [REDACTED]
+                                    ButtonsJogador[i - 7].setEnabled(true);
+                                    ButtonsJogador[i - 7].setBorder(BorderGreen);
+                                }[REDACTED]
+                            }
+                            SegundoBlocoNavio = i;
+                            if(CheckJogadorBlocosColocados > 3){
+                            [REDACTED]
+                            ButtonsJogador[CoordPrimeiroNavioPopa].setEnabled(false);
+                            [REDACTED]
+                            }
+                            if(CheckJogadorBlocosColocados > 6){
+                            [REDACTED]
+                            }
+                        }
+                    }
+                    NavioCicloCheckJogador++;
+                }
+                else if (NavioCicloCheckJogador == 3){
+                    for (int i = 0; i <= 48; i++){
+                        if (e1.getSource() == ButtonsJogador[i]) {
+                            for (int j = 0; j <= 48; j++) {
+                                ButtonsJogador[j].setEnabled(true);
+                                [REDACTED]
+                            }
+                            if(CheckJogadorBlocosColocados == 3){
+                                CoordPrimeiroNavioProa = PrimeiroBlocoNavio;
+                                [REDACTED]
+                                CoordsPrimeiroNavioJogador.add(CoordPrimeiroNavioProa);
+                               [REDACTED]
+                            CoordsSegundoNavioJogador.add(CoordSegundoNavioMeiaNau);
+                            [REDACTED]
+                            ButtonsJogador[CoordPrimeiroNavioProa].setEnabled(false);
+                            [REDACTED]
+                            ButtonsJogador[CoordPrimeiroNavioPopa].setEnabled(false);
+                            [REDACTED]
+                                CoordTerceiroNavioMeiaNau = SegundoBlocoNavio;
+                                CoordTerceiroNavioPopa = i;
+                                CoordsTerceiroNavioJogador.add(CoordTerceiroNavioProa);
+                                [REDACTED]
+                            }
+                            ButtonsJogador[i].setText(null);
+                            //ButtonsJogador[i].setBackground(CorNavioPopa);
+                            //=================================================================================
+                            if (i == SegundoBlocoNavio - 1){
+                                ButtonsJogador[i].setIcon(IconPopaHorizontal);
+                            } else if (i == PrimeiroBlocoNavio + 1) {
+                                ButtonsJogador[PrimeiroBlocoNavio].setIcon(IconMNHorizontal);
+                                ButtonsJogador[SegundoBlocoNavio].setIcon(IconPopaHorizontal);
+                                [REDACTED]
+                            //---------------------------------------------------------------------------------
+                            }  else if (i == SegundoBlocoNavio - 7){
+                                ButtonsJogador[i].setIcon(IconProaVertical);
+                            } else if (i == PrimeiroBlocoNavio + 7) {
+                                [REDACTED]
+                                ButtonsJogador[i].setIcon(IconPopaVertical);
+                            }[REDACTED]
+                            }
+                            //=================================================================================
+                        }
+                    }
+                    NavioCicloCheckJogador = 1;
+                }
+                [REDACTED]
+                    ButtonReiniciar.setVisible(true);
+                }
+                if (CheckJogadorBlocosColocados == 9) {
+                    [REDACTED]
+                }
+            }
+        }
+    };
+    ActionListener PanelInstrucoesButtonsListener = new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e2) {
+            if (e2.getSource() == ButtonReiniciar){
+                for (int j = 0; j <= 48; j++) {
+                    ButtonsJogador[j].setEnabled(true);
+                    //ButtonsJogador[j].setBackground(CorMar);
+                    [REDACTED]
+                    ButtonsJogador[j].setBorder(BorderMatriz);
+		    [REDACTED]
+                }
+                CoordsTodosNavioJogador.clear();
+                CoordsPrimeiroNavioJogador.clear();
+                [REDACTED]
+                NavioCicloCheckJogador = 1;
+                [REDACTED]
+                [REDACTED]
+                [REDACTED]
+                CoordTerceiroNavioMeiaNau= -1;
+                CoordTerceiroNavioPopa= -1;
+            } else if (e2.getSource() == ButtonConfirmar){
+                for (int j = 0; j <= 48; j++) {
+                    ButtonsJogador[j].removeActionListener(ColocarNaviosJogadorListener);
+                }
+                CoordsTodosNavioJogador.addAll(CoordsPrimeiroNavioJogador);
+                [REDACTED]
+            }
+        }
+    };
+}

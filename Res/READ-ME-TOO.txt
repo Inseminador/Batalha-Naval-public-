@@ -1,0 +1,1 @@
+If you want to play the game you must download the zip and put all of its contents inside a preferably empty folder, so then you can execute the .jar. This is because the images inside wont be read inside the compacted folder and you need them to run the program properly otherwise the game assets wont update. Zip is to only ease the download of all assets and archives.
